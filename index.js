@@ -36,9 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Api is running');
 })
-app.get("/servicess", async (req, res) => {
-  res.send("Hello Worlddddd");
-});
+
 // SERVICE READ ONLY SCHEMA
 
 const Service = mongoose.model('Services', new mongoose.Schema(),'services');
@@ -104,11 +102,8 @@ app.post('/product', async(req, res) => {
 })
 app.get('/products', async (req, res) => {
   try {
-    const product = await Product.find();
-    console.time()
-    
+    const product = await Product.find();    
       res.send(product);
-   
       res.status(404).send({message:"product not found"})
     
   }
@@ -187,11 +182,8 @@ app.get('/teams/:id', async (req, res) => {
 
 app.get('/services', async (req, res) => {
   try {
-    console.log('asdff')
     const services = await Service.find();
-console.log("asdfasdf 123");
     if (services) {
-      console.log('asdfasdf')
       res.send(services)
 
     } else {
