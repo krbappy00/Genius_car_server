@@ -114,7 +114,7 @@ app.get('/products', async (req, res) => {
 })
 app.get('/checkout/products/:id', async (req, res) => {
   const id = req.params.id
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set('Access-Control-Allow-Origin', 'https://genius-cars-service.onrender.com');
   try {
     const product = await Product.findOne({_id:id})
     if (product) {
@@ -148,7 +148,7 @@ app.post('/teams', async (req, res) => {
   }
 })
 app.get('/teams', async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set('Access-Control-Allow-Origin', 'https://genius-cars-service.onrender.com');
   try {
     const team = await Team.find();
     if (team) {
@@ -163,7 +163,7 @@ app.get('/teams', async (req, res) => {
 
 })
 app.get('/teams/:id', async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set('Access-Control-Allow-Origin', 'https://genius-cars-service.onrender.com');
   const id = req.params.id
   try {
     const team = await Team.findOne({_id:id})
@@ -182,7 +182,7 @@ app.get('/teams/:id', async (req, res) => {
 // SERVICE GET
 
 app.get('/services', async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set('Access-Control-Allow-Origin', 'https://genius-cars-service.onrender.com');
   try {
     const services = await Service.find();
     if (services) {
@@ -197,7 +197,7 @@ app.get('/services', async (req, res) => {
   }
 })
 app.get('/services/:id', async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
+  res.set('Access-Control-Allow-Origin', 'https://genius-cars-service.onrender.com');
   const id = req.params.id
   try {
     const service = await Service.findOne({_id:id})
