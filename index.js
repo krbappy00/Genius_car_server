@@ -74,9 +74,9 @@ app.get("/orders", async (req, res) => {
     }
     const order = await Order.find(q);
     if (order) {
-      res.send(order);
+      res.json(order);
     } else {
-      res.status(404).send({ message: "order not found" });
+      // res.status(404).json({ message: "order not found" });
     }
   } catch (error) {
     res.status(500).send({ message: error.message });
@@ -103,12 +103,10 @@ app.post('/product', async(req, res) => {
 app.get('/products', async (req, res) => {
   try {
     const product = await Product.find();    
-      res.send(product);
-      res.status(404).send({message:"product not found"})
-    
+      res.json(product);
   }
   catch(error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 
 })
@@ -118,13 +116,13 @@ app.get('/checkout/products/:id', async (req, res) => {
   try {
     const product = await Product.findOne({_id:id})
     if (product) {
-      res.send(product);
+      res.json(product);
     } else {
-      res.status(404).send({message:"product not found"})
+      res.status(404).json({message:"product not found"})
     }
   }
   catch(error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 
 })
@@ -152,13 +150,13 @@ app.get('/teams', async (req, res) => {
   try {
     const team = await Team.find();
     if (team) {
-      res.send(team);
+      res.json(team);
     } else {
-      res.status(404).send({message:"team member not found"})
+      res.status(404).json({message:"team member not found"})
     }
   }
   catch(error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 
 })
@@ -168,13 +166,13 @@ app.get('/teams/:id', async (req, res) => {
   try {
     const team = await Team.findOne({_id:id})
     if (team) {
-      res.send(team);
+      res.json(team);
     } else {
-      res.status(404).send({message:"team  member not found"})
+      // res.status(404).send({message:"team  member not found"})
     }
   }
   catch(error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 
 })
@@ -186,14 +184,14 @@ app.get('/services', async (req, res) => {
   try {
     const services = await Service.find();
     if (services) {
-      res.send(services)
+      res.json(services)
 
     } else {
-      res.status(404).send({message:"service not found"})
+      // res.status(404).send({message:"service not found"})
     }
   }
   catch (error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 })
 app.get('/services/:id', async (req, res) => {
@@ -202,13 +200,13 @@ app.get('/services/:id', async (req, res) => {
   try {
     const service = await Service.findOne({_id:id})
     if (service) {
-      res.send(service);
+      res.json(service);
     } else {
-      res.status(404).send({message:"service not found"})
+      // res.status(404).json({message:"service not found"})
     }
   }
   catch(error) {
-    res.status(500).send({message:error.message})
+    res.status(500).json({message:error.message})
   }
 
 })
